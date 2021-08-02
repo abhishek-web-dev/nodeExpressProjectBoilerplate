@@ -15,7 +15,16 @@ const server = require('http').createServer(app);
 require('./middlewares')(app);
 
 
-server.listen(process.env.SERVER_PORT, '0.0.0.0', function () {
-    console.log('   [server] listening on ' + process.env.SERVER_PORT);
-});
+// connect with DB
+require('./mongoose').connect()
+    .then(x => {
+        console.log('[mongodb] mongoose connected');
+        console.log("[DB string]  ", process.env.MONGO_URL);
+        server.listen(process.env.SERVER_PORT, '0.0.0.0', function () {
+            console.log('   [server] listening on ' + process.env.SERVER_PORT);
+        });
+    })
+    .catch(err => console.log(`  [error] ${err}`))
+
+
 
