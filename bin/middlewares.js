@@ -1,6 +1,6 @@
 // dependency library
+const config = require('./../lib/config');
 const express = require('express');
-require('dotenv').config()
 const cors = require('cors');
 const helmet = require('helmet');
 
@@ -8,14 +8,14 @@ const helmet = require('helmet');
 module.exports = (app) => {
 
     // serving apidoc to client
-    if (process.env.ENVIRONMENT === 'dev') {
+    if (config.environment === 'dev') {
         app.use('/apidoc', express.static(__dirname + '/apidoc'));
     }
 
     // allow specific IP to access this API
-    const corseOption = process.env.ENVIRONMENT === 'dev' ? {} : {
+    const corseOption = config.environment === 'dev' ? {} : {
         origin: function (origin, callback) {
-            if ((process.env.ALLOWED_HOSTS ? process.env.ALLOWED_HOSTS.split('::::') : []).indexOf(origin) !== -1) {
+            if ((config.allowedHosts ? config.allowedHosts.split('::::') : []).indexOf(origin) !== -1) {
                 callback(null, true)
             } else {
                 callback('Not allowed by CORS' , false);

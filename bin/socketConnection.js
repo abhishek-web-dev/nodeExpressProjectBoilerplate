@@ -4,15 +4,16 @@
 
 // feature modules
 const { validateToken } = require('./../app/socket/middleware/token');
-const socketConnection = require('./../app/socket');
+const socketConnection = require('../app/socket');
+const config = require('../lib/config');
 
 
 module.exports = (server) => {
-  let origin = process.env.ENVIRONMENT === 'dev' ? "*" : "abc.com";
+  let origin = config.environment === 'dev' ? "*" : "abc.com";
   // initialize socket
   let io = require('socket.io')(server, {
     cors: {
-      origin: "*"
+      origin: "*" //['abc.com','def.com']
     },
     maxHttpBufferSize: 7e6
   });

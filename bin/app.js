@@ -4,7 +4,7 @@
 const express = require('express');
 
 // feature modules
-
+const config = require('./../lib/config');
 
 
 const app = express();
@@ -12,19 +12,19 @@ const app = express();
 const server = require('http').createServer(app);
 
 // initialize socket connection
-require("./socket")(server);
+require("./socketConnection")(server);
 
 // import all middlewares
 require('./middlewares')(app);
 
 
 // connect with DB
-require('./mongoose').connect()
+require('./mongoConnection').connect()
     .then(x => {
         console.log('[mongodb] mongoose connected');
-        console.log("[DB string]  ", process.env.MONGO_URL);
-        server.listen(process.env.SERVER_PORT, '0.0.0.0', function () {
-            console.log('   [server] listening on ' + process.env.SERVER_PORT);
+        console.log("[DB string]  ", config.mongoUrl);
+        server.listen(config.port, '0.0.0.0', function () {
+            console.log('   [server] listening on ' + config.port);
         });
     })
     .catch(err => console.log(`  [error] ${err}`))
