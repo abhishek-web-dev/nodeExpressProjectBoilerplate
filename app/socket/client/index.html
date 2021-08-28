@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="file" type="file" />
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/socket.io-stream.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script>
+        var socket = io.connect(`http://104.161.92.74:3321/upload`);
+        
+
+        $('#file').change(function (e) {
+            let startTime = new Date().getTime();
+            var file = e.target.files[0];
+            var stream = ss.createStream();
+            //console.log("file : ", file)
+            var blobStream = ss.createBlobReadStream(file, {
+                highWaterMark: 1024 * 512 // Desired chunk length in bytes, 200kb in this example
+                
+            });
+            var size = 0;
+
+            // upload a file to the server.
+            ss(socket).emit('files', stream, { size: file.size, name: file.name });
+
+            blobStream.on('data', function (chunk) {
+                size += chunk.length;
+                console.log(Math.floor(size / file.size * 100) + '%');
+                // if(Math.floor(size / file.size * 100) > 50){
+                //     console.log("close stream",Math.floor(size / file.size * 100))
+                //     blobStream.destroy();
+                // }
+                console.log("chunk : ",chunk.length,"time : ",new Date( new Date().getTime() - startTime).getSeconds())
+                // -> e.g. '42%'
+            });
+
+            blobStream.on('end', function (data) {
+                console.log("end : ")
+            });
+
+            blobStream.pipe(stream);
+
+           
+        });
+    </script>
+
+
+    <!-- <h2>With <code>"express"</code> npm package</h2>
+    <form action="http://104.161.92.74:3321/v1/files/upload" enctype="multipart/form-data" method="post">
+        <div>Text field title: <input type="text" name="title" /></div>
+        <div>File: <input type="file" name="someExpressFiles" multiple="multiple" /></div>
+        <input type="submit" value="Upload" />
+    </form> -->
+</body>
+
+</html>
+
+<!-- 
+    512 - 21 sec
+    1kb - 
+ --></meta>
