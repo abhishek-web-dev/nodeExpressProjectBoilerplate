@@ -1,84 +1,92 @@
-# nodeStarterProject
-node starter project  
+# Node Project Starter
 
-### Project file structure
- - **app** : contains all business logics
- - **bin** : server initialization
- - **lib** : all custom library
+##### **_This README includes instructions for developers and maintainers for this project._**
 
-```
-root/
-|
-|--- app/
-|    |
-|    |--- constants/
-|    |    |
-|    |    |--- error.js
-|    |    |
-|    |    |--- http.js
-|    |    |
-|    |    |--- index.js
-|    |    | 
-|    |--- modules/
-|    |    |
-|    |    |--- appStore/
-|    |    |    |
-|    |    |    |--- controller.js
-|    |    |    |
-|    |    |    |--- DAL.js
-|    |    |    |     
-|    |    |    |--- constant.js
-|    |    |    |
-|    |    |    |--- error.js
-|    |    |    |
-|    |    |    |--- model.js
-|    |    |    |
-|    |    |    |--- service.js
-|    |    |    |
-|    |    |    |--- validator.js
-|    |    |    |
-|    |    |--- user/
-|    |    |
-|    |    |--- index.js
-|    |    | 
-|    |--- routes/
-|    |    | 
-|    |    |--- appStore.js
-|    |    |
-|    |    |--- user.js
-|    |    | 
-|    |    |--- index.js
-|    |    |
-|--- bin/
-|    |
-|    |--- app.js
-|    |
-|    |--- middleware.js
-|    |
-|    |--- mongoConnection.js
-|    | 
-|--- lib/
-|    |
-|    |--- config/
-|    |    |
-|    |    |--- index.js 
-|    |
-|    |--- middlewares/
-|    |    |
-|    |    |--- 404.js 
-|    | 
-|--- node_modules/
-|
-|--- .env
-|
-|--- .gitignore
-|
-|--- package-lock.json
-|
-|--- package.json
-|
-|--- README.md
-|
-|
-```
+#
 
+
+## Technology Stack
+
+- **Architecture** : Monolithic MVC
+- **Language** : Node.js
+- **Framework** : Express.js
+- **Database** : MongoDB
+- **ODM** : Mongoose
+- **Cache** : Redis
+- **Cloud Logger** : Loggly
+- **Cloud Provider** : AWS
+
+## Getting started
+
+---
+
+To get the Node server running locally:
+
+- Clone this repo
+- `npm install` to install all required dependencies
+- Install MongoDB Community Edition ([instructions](https://docs.mongodb.com/manual/installation/#tutorials)) and run it by executing `mongod`
+- Create `.env` file in the root. Take sample.env as an example
+- `npm start` to start the local server
+
+## Code Overview
+
+### Dependencies
+
+---
+
+- [Express.js](https://github.com/expressjs/express) - The server for handling and routing HTTP requests
+- [Json web token](https://github.com/auth0/node-jsonwebtoken) - For generating JWT's used by authentication
+- [Mongoose](https://github.com/Automattic/mongoose) - For modeling and mapping MongoDB data to javascript
+- [Winston](https://github.com/winstonjs/winston) - For logging to console file and adding transports
+- [Redis](https://github.com/NodeRedis/node_redis) - For caching, storing session
+- [DotEnv](https://github.com/motdotla/dotenv) - Loading variables form .env to PROCESS_ENV
+- [String-Format](https://github.com/davidchambers/string-format) - Used for formatting and interpolating strings
+
+#### Dev-Dependencies
+
+- [ESLint](https://github.com/eslint/eslint) - Linting Javascript Code
+- [Nodemon](https://github.com/remy/nodemon) - Automatically restart node server wrt to changes
+
+#
+
+### Coding Pattern and Standards to be followed
+
+---
+
+#### Notations :
+
+    - CamelCase coding pattern.
+    - Appropriate variable names(avoid general variables).
+    - Functions to be written using ( => ).
+    - Avoid redundant code lines.
+    - 'use strict';
+    - No commented code
+
+---
+
+#### Standards :
+
+    - Put Author and Date on every file
+    - Write modular functional code
+    - Avoid unnecessary looping /conditional statements, unless needed
+    - Use Async Await
+    - No unnecessary comments
+    - use strict equality check(===) instead of (==)
+
+---
+
+#### Process :
+
+    - 2 branches only:
+        - Develop
+        - Master
+    - Commit message should have JIRA task - if not then create one task on your own.
+    - PR title should contain all JIRA tasks.
+
+---
+
+### Authors
+
+---
+
+#### Abhishek Kumar : abhisheksuccess00@gmail.com
