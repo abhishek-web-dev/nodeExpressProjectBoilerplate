@@ -1,3 +1,8 @@
+
+#contains all dependency
 node_modules
+
+#contain secret configration
+.env
 
 
