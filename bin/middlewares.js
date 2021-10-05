@@ -27,9 +27,7 @@ module.exports = (app) => {
     app.use(require('morgan')('dev'));//for request logs 
     app.use(express.urlencoded({ extended: false }));//parse req
     app.use(express.json({ limit: "50mb" }));//parse req
-    //app.use(require('typescript-require'));
-
-    // import all routes
-    require('../app/routes')(app);
-    require('../lib/middlewares/404')(app);//router not found
+    app.use(`/${process.env.API_VERSION}`,require('../app/routes'));// import all routes
+    app.use(require('../lib/middlewares/routeNotFound'));
+    app.use(require('../lib/middlewares/errorHandler'));//global error handler
 }

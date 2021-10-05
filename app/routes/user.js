@@ -1,23 +1,34 @@
 
 const router = require('express').Router();
 const controller = require('../modules/user/controller');
-const { isAuthenticated, isUserTypeAllowed, asyncExecute } = require('../middlewares');
-const { USERTYPE_USER, USERTYPE_ADMIN } = require('../constants/model');
+const asyncExecute = require('./../../lib/middlewares/asyncExecute');
 
-router.post('/send-login-otp', asyncExecute(controller.sendLoginOtp));
-router.post('/login', asyncExecute(controller.login));
-router.post('/guest-login', asyncExecute(controller.guestLogin));
-router.post('/social-login/google', asyncExecute(controller.googleSignin));
-router.post('/social-login/facebook', asyncExecute(controller.facebookSignin));
 
-router.get('/me', asyncExecute(isAuthenticated), isUserTypeAllowed(USERTYPE_USER), asyncExecute(controller.getProfile));
-router.put('/me', asyncExecute(isAuthenticated), isUserTypeAllowed(USERTYPE_USER), asyncExecute(controller.updateProfile));
-router.post('/me/send-update-phone-otp', asyncExecute(isAuthenticated), isUserTypeAllowed(USERTYPE_USER), asyncExecute(controller.sendUpdatePhoneOtp));
-router.post('/me/update-phone', asyncExecute(isAuthenticated), isUserTypeAllowed(USERTYPE_USER), asyncExecute(controller.updatePhone));
+router.get('/get-user-data', asyncExecute(controller.sendLoginOtp));
+/**
+ * @apiGroup PDF
+ * @apiVersion  1.0.0
+ * @apiDescription API to merge pdf files
+ * @api {get} /v1/pdf/mergePdf api to merge pdf files
+ *
+ *@apiParam {String} id Send user id as a query parameter
+ *@apiParam {Array} stories Send stories as a array of object in body parameter
+ *
+ *
+ *@apiSuccessExample {json} Success-Response: status - 200
+   {
 
-router.get('/', asyncExecute(isAuthenticated), isUserTypeAllowed(USERTYPE_ADMIN), asyncExecute(controller.getPaginatedList));
-router.post('/csv', asyncExecute(isAuthenticated), isUserTypeAllowed(USERTYPE_ADMIN), asyncExecute(controller.exportList));
-router.post('/:userId/block', asyncExecute(isAuthenticated), isUserTypeAllowed(USERTYPE_ADMIN), asyncExecute(controller.block));
-router.post('/:userId/unblock', asyncExecute(isAuthenticated), isUserTypeAllowed(USERTYPE_ADMIN), asyncExecute(controller.unblock));
+   }
+  @apiErrorExample {json} Error-Response: status - 500
+  {
+    "errorToken": "GIAxie6YhRCe",
+    "error": true,
+    "statusCode": 202,
+    "message": "Error related message!",
+    "tryAgain": true,
+    "data": {}
+  }
+*/
+
 
 module.exports = router;

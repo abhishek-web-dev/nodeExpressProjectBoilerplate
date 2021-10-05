@@ -1,10 +1,14 @@
+// dependency library
+const express = require('express')
+const router = express.Router()
+
 // feature modules
-const healthCheckRouter = require('./healthCheck');
-const pdfRouter = require('./pdf');
 
 
+router.use(`/`, require('./healthCheck'));
+// router.use(`/pdf`, pdfRouter);
 
-module.exports = (app) => {
-    app.use(`/${process.env.API_VERSION}`, healthCheckRouter);
-    app.use(`/${process.env.API_VERSION}/pdf`, pdfRouter);
-}
+
+module.exports = router;
+
+
