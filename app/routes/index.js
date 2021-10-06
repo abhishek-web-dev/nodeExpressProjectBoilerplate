@@ -6,7 +6,6 @@ const router = express.Router()
 
 
 router.use(`/`, require('./healthCheck'));
-// router.use(`/pdf`, pdfRouter);
 
 
 module.exports = router;
