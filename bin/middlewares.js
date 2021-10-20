@@ -13,7 +13,7 @@ module.exports = (app) => {
     }
 
     // allow specific IP to access this API
-    const corseOption = config.environment === 'dev' ? {} : {
+    const corseOption = config.environment === 'development' ? {} : {
         origin: function (origin, callback) {
             if ((config.allowedHosts ? config.allowedHosts.split('::::') : []).indexOf(origin) !== -1) {
                 callback(null, true)

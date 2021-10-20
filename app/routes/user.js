@@ -9,7 +9,7 @@ router.post('/get-user-data', asyncExecute(controller.createUser));
  * @apiGroup USER
  * @apiVersion  1.0.0
  * @apiDescription API to merge pdf files
- * @api {post} /v1/pdf/mergePdf api to merge pdf files
+ * @api {post} /v1/user/get-user-data api to merge pdf files
  *
  *@apiParam {String} id Send user id as a query parameter
  *@apiParam {Array} stories Send stories as a array of object in body parameter

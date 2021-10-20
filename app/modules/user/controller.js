@@ -17,7 +17,8 @@ let createUser = async (request, response) => {
   if (config.environment != 'dev') {
     responseObj.name = `${user.firstName} ${user.lastName}`;
   }
-  successResponse(request, response, httpCode.OK_REQUEST, responseObj);
+  // successResponse(request, response, httpCode.OK_REQUEST, responseObj);
+  successResponse(responseObj);
 };
 
 

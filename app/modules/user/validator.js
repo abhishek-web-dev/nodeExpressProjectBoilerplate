@@ -1,5 +1,5 @@
 
-// const { Joi, docSchema } = require('../../utils/validators');
+const Joi = require('joi');
 
 // write all validator logic
 

@@ -28,6 +28,8 @@ const ERROR_CODES = {
   FACEBOOK_LOGIN_EMAIL_SCOPE_MISSING: 3100,
   FACEBOOK_INVALID_APP_ID_IN_TOKEN: 3101,
 
+  INTERNAL_SERVER_ERROR: 5000,
+
   ...USER_COMPONENT_ERROR_CODES
 };
 
@@ -39,6 +41,13 @@ const ERROR_INFO = {
     errorUserTitle:'',
     errorUserMsg: httpMessage[httpCode.NOT_FOUND], 
     httpCode: httpCode.NOT_FOUND 
+  },
+  [ERROR_CODES.INTERNAL_SERVER_ERROR]: {
+    errorDescription:'Internal server error',
+    type:'',
+    errorUserTitle:'',
+    errorUserMsg: httpMessage[httpCode.INTERNAL_SERVER_ERROR], 
+    httpCode: httpCode.INTERNAL_SERVER_ERROR 
   },
   [ERROR_CODES.OBJECT_NOT_FOUND]: {
     errorDescription:'Object not found',

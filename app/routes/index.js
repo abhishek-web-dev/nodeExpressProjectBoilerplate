@@ -6,6 +6,7 @@ const router = express.Router()
 
 
 router.use(`/`, require('./healthCheck'));
+router.use(`/user`, require('./user'));
 
 
 module.exports = router;

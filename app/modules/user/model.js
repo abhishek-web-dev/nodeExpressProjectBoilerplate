@@ -9,7 +9,7 @@ let userSchema = new SCHEMA({
     required: true
   },
   lastName: {
-    type: docSchema,
+    type: String,
     required: true
   }
 },{ timestamps: true });
