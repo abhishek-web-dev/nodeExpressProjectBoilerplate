@@ -9,16 +9,17 @@ const config = require('./../../../lib/config')
 let createUser = async (request, response) => {
   validateRequest(request, validator.createUser);
 
-  let user = await service.createAccount({...request.body});
+  let user = await service.createAccount({ ...request.body });
 
   let responseObj = {
     message: 'User has created successfully!'
   };
-  if (config.environment != 'dev') {
+  if (config.environment === 'development') {
     responseObj.name = `${user.firstName} ${user.lastName}`;
   }
+
   // successResponse(request, response, httpCode.OK_REQUEST, responseObj);
-  successResponse(responseObj);
+  successResponse(response, 200, responseObj);
 };
 
 

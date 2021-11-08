@@ -7,13 +7,13 @@ const ERROR_CODES = {
 };
 
 const ERROR_INFO = {
-  // [ERROR_CODES.OTP_EXPIRED]: { 
-  //   errorDescription:'Your OTP has expired',
-  //   type:'',
-  //   errorUserTitle:'',
-  //   errorUserMsg: httpMessage[httpCode.BAD_REQUEST], 
-  //   httpCode: httpCode.BAD_REQUEST 
-  // }
+  [ERROR_CODES.OTP_EXPIRED]: {
+    errorDescription: 'Your OTP has expired',
+    type: '',
+    errorUserTitle: '',
+    errorUserMsg: httpMessage[httpCode.BAD_REQUEST],
+    httpCode: httpCode.BAD_REQUEST
+  }
 };
 
 module.exports = {
