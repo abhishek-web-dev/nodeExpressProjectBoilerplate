@@ -1,5 +1,5 @@
-# nodeStarterProject
-node starter project  
+# node-express-starting-project
+node express starting project  
 
 ### Project file structure
  - **app** : contains all business logics

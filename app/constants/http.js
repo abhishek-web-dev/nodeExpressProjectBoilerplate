@@ -1,5 +1,6 @@
 'use strict';
 
+// list of most usable http status codes
 let httpCode = {
   ACCEPTED: 202,
   BAD_GATEWAY: 502,
@@ -58,6 +59,7 @@ let httpCode = {
 };
 
 
+// appropriate message for above status codes
 let httpMessage = {
   [httpCode.ACCEPTED]: 'Accepted',
   [httpCode.BAD_GATEWAY]: 'Bad Gateway',

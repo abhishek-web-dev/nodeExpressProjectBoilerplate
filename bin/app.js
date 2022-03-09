@@ -12,7 +12,7 @@ const app = express();
 const server = require('http').createServer(app);
 
 // initialize socket connection
-// require("./socketConnection")(server);
+require("./socket")(server);
 
 // import all middlewares
 require('./middlewares')(app);

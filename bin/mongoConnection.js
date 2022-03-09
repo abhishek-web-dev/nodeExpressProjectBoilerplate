@@ -1,12 +1,25 @@
-var mongoose = require('mongoose');
+// dependency library
+const mongoose = require('mongoose');
+
+// feature modules
 const config = require('../lib/config');
 
 module.exports = {
     connect: () => {
         return new Promise((Resolve, Reject) => {
-            mongoose.connect(config.mongoUrl, { poolSize: 20, keepAlive: true, useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, autoIndex: false, useFindAndModify: false }, (err) => {
-                err ? Reject(err) : Resolve()
-            });
+            mongoose.connect(
+                config.mongoUrl,
+                {
+                    poolSize: 20,
+                    keepAlive: true,
+                    useNewUrlParser: true,
+                    useUnifiedTopology: true,
+                    useCreateIndex: true,
+                    autoIndex: false,
+                    useFindAndModify: false
+                }, (err) => {
+                    err ? Reject(err) : Resolve()
+                });
         })
     }
 }

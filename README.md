@@ -1,9 +1,8 @@
-# Node Project Starter
+# Node-express-starting-project
 
 ##### **_This README includes instructions for developers and maintainers for this project._**
 
 #
-
 
 ## Technology Stack
 
@@ -66,6 +65,7 @@ To get the Node server running locally:
 
 #### Standards :
 
+    - Uncomment gitignore file to stop uploading secret file
     - Put Author and Date on every file
     - Write modular functional code
     - Avoid unnecessary looping /conditional statements, unless needed
@@ -80,8 +80,6 @@ To get the Node server running locally:
     - 2 branches only:
         - Develop
         - Master
-    - Commit message should have JIRA task - if not then create one task on your own.
-    - PR title should contain all JIRA tasks.
 
 ---
 
@@ -89,4 +87,4 @@ To get the Node server running locally:
 
 ---
 
-#### Abhishek Kumar : abhisheksuccess00@gmail.com
+#### Appyhigh : appyhigh@gmail.com

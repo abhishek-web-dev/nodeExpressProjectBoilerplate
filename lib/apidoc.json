@@ -1,7 +1,7 @@
 {
-    "name": "PdfTools",
+    "name": "Node-express-starting-project",
     "version": "1.0.0",
-    "description": "Documentation for the pdfTools API",
-    "title": "PdfTools APIs",
-    "url": "http://104.161.92.74:3322"
+    "description": "Documentation for the Node-express-starting-project API",
+    "title": "Node-express-starting-project APIs",
+    "url": "http://104.161.92.74:3326"
 }

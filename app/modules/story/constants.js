@@ -1,0 +1,12 @@
+
+const MAX_OTP_ATTEMPTS = 3;
+
+const OTP_TYPE_PHONE_LOGIN = 1;
+const OTP_TYPE_PHONE_UPDATE = 2;
+
+
+module.exports = {
+  MAX_OTP_ATTEMPTS,
+  OTP_TYPE_PHONE_LOGIN,
+  OTP_TYPE_PHONE_UPDATE,
+};
